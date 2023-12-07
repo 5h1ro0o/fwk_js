@@ -1,0 +1,10 @@
+<%- include('header') -%>
+
+<p>Mes QCMs disponibles</p>
+<ul>
+    <% for (let qcm of qcms) { %>
+    <li><%= qcm %></li>
+    <% } %>
+</ul>
+
+<%- include('footer') -%>
