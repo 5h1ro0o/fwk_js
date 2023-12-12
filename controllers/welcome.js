@@ -1,13 +1,14 @@
 
-const welcomemessage = (req, res ) => {
-    res.send('Bienvenutti a tutti e a tutte en terra corsa ');
+const welcomeMessage = (request, response) => {
+    response.send('Bienvenue');
 };
 
-const welcomemessagefunction = function(req, res ) {
-    res.send('che face ?');
-}
+const welcomeMessageFunction = function(request, response) {
+    response.send('Bienvenue from function');
+};
+
 const testEjsView = (req, res) => {
     res.render('welcome');
-}
+};
 
-module.exports = {welcomemessage, welcomemessagefunction, testEjsView};
+module.exports = {welcomeMessage, welcomeMessageFunction, testEjsView};

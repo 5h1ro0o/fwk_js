@@ -1,25 +1,29 @@
 const express = require('express');
 
-const { welcomemessage, welcomemessagefunction, testEjsView } = require('./controllers/welcome');
-
-const { displayQcms } = require('./controllers/qcm');
+const {welcomeMessage, welcomeMessageFunction, testEjsView} = require('./controllers/welcome');
+const {displayQcms, displayFormQcm, createNewForm} = require('./controllers/qcms');
 
 const app = express();
 
 app.set('view engine', 'ejs');
+app.use(express.urlencoded({extended: true}));
 
 const port = 3000;
 
 
+
+app.get('/', welcomeMessage);
+
+app.get('/welcome2', welcomeMessageFunction);
+
+app.get('/testejs', testEjsView);
+
 app.get('/qcms', displayQcms);
 
-app.get ('/test', testEjsView);
+app.get('/qcms/new', displayFormQcm); //handler
 
-app.get('/', welcomemessage);
+app.post('/qcms/new', createNewForm);
 
-app.get('/welcome', welcomemessagefunction);
-
-app.get('/qcms/new', displayFromQcm);
 app.listen(port, () => {
-    console.log(`Ecoute sur http://localhost: ${port}`);
+    console.log(`Ecoute uniquement sur http://localhost:${port}`);
 });

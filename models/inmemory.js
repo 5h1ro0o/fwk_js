@@ -1,3 +1,3 @@
-const qcms = ['javascript', 'Angular', 'Express'];
+const qcms = ['Javascript', 'Angular', 'Express'];
 
 module.exports = qcms;
