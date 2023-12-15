@@ -8,6 +8,7 @@ class Qcm {
     #subject;
     #author;
     #nbpoints;
+    #questions;
 
     constructor(qcmToCreate) {
         this.#id = qcmToCreate.id;
@@ -16,6 +17,7 @@ class Qcm {
         this.#subject = qcmToCreate.subject;
         this.#author = qcmToCreate.author;
         this.#nbpoints = qcmToCreate.nbpoints;
+        this.#questions = [];
     }
 
     get id() {
@@ -44,6 +46,14 @@ class Qcm {
 
     get nbpoints() {
         return this.#nbpoints;
+    }
+
+    get questions() {
+        return this.#questions;
+    }
+    
+    addQuestion(question) {
+        this.#questions.push(question);
     }
 
     toJSON(key) {

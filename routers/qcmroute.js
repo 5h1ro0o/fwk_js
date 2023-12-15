@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-
+const {displayFormQuestion} = require('../controllers/questions');
 const {displayQcms, displayFormQcm, createNewForm, displayQcmJson, displayQcmDetailed} = require('../controllers/qcms');
 
 
@@ -9,18 +9,21 @@ const {displayQcms, displayFormQcm, createNewForm, displayQcmJson, displayQcmDet
 
 router.get('/', displayQcms);
 
-//point d'acces pour afficher le detail d'un QCM
-router.get('/:qcmid', displayQcmDetailed)
-// permet l'utilisation de localhost:3000/qcms/2
-// qui affiche le qcm ayant pour id 2
-// req.params.qcmid
+router.get('/questions', displayFormQuestion);
+
+router.post('/questions/new', createNewForm);
+
 router.get('/json', displayQcmJson);
 
 router.get('/new', displayFormQcm); //handler
 
 router.post('/new', createNewForm);
 
-
+//point d'acces pour afficher le detail d'un QCM
+router.get('/:qcmid', displayQcmDetailed)
+// permet l'utilisation de localhost:3000/qcms/2
+// qui affiche le qcm ayant pour id 2
+// req.params.qcmid
 //FIN DES ROUTES
 
 

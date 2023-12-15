@@ -1,0 +1,22 @@
+<form action="questions/new" method="POST">
+    <div>
+        <label for="question">Question</label>
+        <input type="text" id="question" name="question">
+    </div>
+    <div>
+        <label for="qcm_id">QCM</label>
+        <select name="qcm_id" id="qcm_id">
+            <% qcms.forEach(function(qcm) { %>
+            <option value="<%= qcm.id %>"><%= qcm.name %></option>
+            <% }); %> </select>
+    </div>
+    <div>
+        <label for="category">Category</label>
+        <input type="text" id="category" name="category">
+    </div>
+    <div>
+        <label for="difficulty">Difficulty</label>
+        <input type="text" id="difficulty" name="difficulty">
+    </div>
+    <input type="submit" value="Create">
+</form>

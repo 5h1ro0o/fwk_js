@@ -1,5 +1,6 @@
 // importer la classe Qcm
 const Qcm = require('./qcm');
+const Question = require('./question');
 
 // remplacer les simples chaines de caracteres par des instances de la classe Qcm
 const qcms = [
@@ -7,7 +8,24 @@ const qcms = [
     new Qcm({ id: 1, name: 'Framework Frontend', nbpoints: 20, subject: 'Angular' }),
     new Qcm({ id: 2, name: 'Framework Backend', nbpoints: 10, subject: 'Express' }),
 ];
-
+const addQuestion = (rawObject) => {
+   let maxId = 0;
+   let nbquestions = 0;
+   const qcm = qcms.find((element) => element.id === rawObject.qcm_id);
+   qcm.forEach((question) =>{
+       nbquestions++;
+       }
+   );
+   maxId = nbquestions;
+    const question = new Question(
+         {
+              id: maxId + 1,
+              question: rawObject.question,
+              category: rawObject.category,
+              difficulty: Number(rawObject.difficulty)
+         });
+    qcm.addQuestion(question)
+;}
 
 const addQcm = (rawObject) => {
     //FIXME: fonction qui ajoute un element a la liste et incremente l'id
@@ -30,4 +48,5 @@ const addQcm = (rawObject) => {
     qcms.push(qcm);
 }
 
-module.exports = { qcms, addQcm };
+
+module.exports = { qcms, addQcm, addQuestion};
