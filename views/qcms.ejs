@@ -3,8 +3,11 @@
 <p>Mes QCMS disponibles</p>
 <ul>
     <% for (let qcm of qcms) { %> <!--commencer le parcours de la liste qcms -->
-    <li><%= qcm.name %> (<%= qcm.subject %>) : <%= qcm.nbpoints %> points <%= for (let qcm of qcms)%> </li> <!-- Introduction Vanilla JS (Javascript): 20 points -->
-
+    <li><%= qcm.name %> (<%= qcm.subject %>) : <%= qcm.nbpoints %> points Questions : 
+    <% for (let question of qcm.questions) { %>
+        <%= question %> 
+    <% } %>
+    </li> <!-- Introduction Vanilla JS (Javascript): 20 points -->
      <!-- afficher l'élément de la liste et le nb de points du Qcm-->
     <% } %> <!-- penser à fermer le corps de la boucle -->
 </ul>
