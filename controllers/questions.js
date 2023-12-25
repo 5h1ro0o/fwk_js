@@ -11,7 +11,6 @@ const createNewForm = (req, res) => {
         qcm_id: req.body.qcm_id,
         category: req.body.category,
         difficulty: req.body.difficulty
-
     });
     res.redirect('/qcms');
 }
